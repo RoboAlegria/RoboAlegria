@@ -1,0 +1,383 @@
+.topheader {
+	background-color:black;
+	position: absolute;
+	width:100%;
+	height:45px;
+	margin:0px;
+	top:0px;
+	left:0px;
+}
+
+* {
+ font-family: Segoe UI, sans-serif;
+ font-size: 12px;
+}
+
+.movbutton {
+	position: absolute;
+	top: 105px;
+	height: 100px;
+	width: 100px;
+	cursor: pointer;
+	z-index: 900;
+	opacity: 0.5;
+	border-width: 1px;
+	border-style: solid;
+	transition: opacity .25s ease-in-out;
+}
+.movbutton:hover {
+	position: absolute;
+	top: 55px;
+	height: 200px;
+	width: 200px;
+	cursor: pointer;
+	z-index: 999;
+	opacity: 1;
+}
+.movbutton_click {
+	opacity: 1.0;
+}
+
+.movbutton.mov1 {
+	left: 50px;
+}
+.movbutton.mov1:hover {
+	left: 0px;
+}
+
+.movbutton.mov2 {
+	left: 150px;
+}
+.movbutton.mov2:hover {
+	left: 100px;
+}
+
+.movbutton.mov3 {
+	left: 250px;
+}
+.movbutton.mov3:hover {
+	left: 200px;
+}
+
+.movbutton.mov4 {
+	left: 350px;
+}
+.movbutton.mov4:hover {
+	left: 300px;
+}
+
+.movbutton.mov5 {
+	left: 450px;
+}
+.movbutton.mov5:hover {
+	left: 400px;
+}
+
+.movbutton.mov6 {
+	left: 550px;
+}
+.movbutton.mov6:hover {
+	left: 500px;
+}
+
+.movbutton.mov7 {
+	left: 650px;
+}
+.movbutton.mov7:hover {
+	left: 600px;
+}
+
+.movbutton.mov8 {
+	left: 750px;
+}
+.movbutton.mov8:hover {
+	left: 700px;
+}
+
+.movbutton.mov9 {
+	left: 850px;
+}
+.movbutton.mov9:hover {
+	left: 800px;
+}
+
+.facbutton {
+	position: absolute;
+	top: 206px;
+	height: 100px;
+	width: 100px;
+	cursor: pointer;
+	z-index: 990;
+	opacity: 0.5;
+	border-width: 1px;
+	border-style: solid;
+	transition: opacity .25s ease-in-out;
+}
+.facbutton:hover {
+	top: 156px;
+	height: 200px;
+	width: 200px;
+	z-index: 999;
+	opacity: 1;
+}
+.facbutton_click {
+	opacity: 1.0;
+}
+
+.facbutton.fac1 {
+	left: 50px;
+}
+.facbutton.fac1:hover {
+	left: 0px;
+}
+
+.facbutton.fac2 {
+	left: 150px;
+}
+.facbutton.fac2:hover {
+	left: 100px;
+}
+
+.facbutton.fac3 {
+	left: 250px;
+}
+.facbutton.fac3:hover {
+	left: 200px;
+}
+
+.facbutton.fac4 {
+	left: 350px;
+}
+.facbutton.fac4:hover {
+	left: 300px;
+}
+
+.facbutton.fac5 {
+	left: 450px;
+}
+.facbutton.fac5:hover {
+	left: 400px;
+}
+
+.facbutton.fac6 {
+	left: 550px;
+}
+.facbutton.fac6:hover {
+	left: 500px;
+}
+
+.facbutton.fac7 {
+	left: 650px;
+}
+.facbutton.fac7:hover {
+	left: 600px;
+}
+
+.facbutton.fac8 {
+	left: 750px;
+}
+.facbutton.fac8:hover {
+	left: 700px;
+}
+
+.facbutton.fac9 {
+	left: 850px;
+}
+.facbutton.fac9:hover {
+	left: 800px;
+}
+
+.oldbutton {
+	position: absolute;
+	top: 186px;
+	height: 50px;
+	width: 50px;
+	cursor: pointer;
+	z-index: 990;
+	opacity: 0.5;
+	border-width: 1px;
+	border-style: solid;
+}
+.oldbutton:hover {
+	top: 161px;
+	height: 100px;
+	width: 100px;
+	z-index: 999;
+	opacity: 1;
+}
+.oldbutton_click {
+	opacity: 1.0;
+}
+
+.oldbutton.old1 {
+	left: 50px;
+}
+.oldbutton.old1:hover {
+	left: 25px;
+}
+
+.oldbutton.old2 {
+	left: 100px;
+}
+.oldbutton.old2:hover {
+	left: 75px;
+}
+
+.oldbutton.old3 {
+	left: 150px;
+}
+.oldbutton.old3:hover {
+	left: 125px;
+}
+
+.oldbutton.old4 {
+	left: 200px;
+}
+.oldbutton.old4:hover {
+	left: 175px;
+}
+
+.oldbutton.old5 {
+	left: 250px;
+}
+.oldbutton.old5:hover {
+	left: 225px;
+}
+
+
+.olebutton {
+	position: absolute;
+	top: 186px;
+	height: 50px;
+	width: 50px;
+	cursor: pointer;
+	z-index: 990;
+	opacity: 0.5;
+	border-width: 1px;
+	border-style: solid;
+}
+.olebutton:hover {
+	top: 161px;
+	height: 100px;
+	width: 100px;
+	z-index: 999;
+	opacity: 1;
+}
+.olebutton_click {
+	opacity: 1.0;
+}
+
+.olebutton.ole1 {
+	left: 650px;
+}
+.olebutton.ole1:hover {
+	left: 625px;
+}
+
+.olebutton.ole2 {
+	left: 700px;
+}
+.olebutton.ole2:hover {
+	left: 675px;
+}
+
+.olebutton.ole3 {
+	left: 750px;
+}
+.olebutton.ole3:hover {
+	left: 725px;
+}
+
+.olebutton.ole4 {
+	left: 800px;
+}
+.olebutton.ole4:hover {
+	left: 775px;
+}
+
+.olebutton.ole5 {
+	left: 850px;
+}
+.olebutton.ole5:hover {
+	left: 825px;
+}
+
+.bocabutton {
+	position: absolute;
+	top: 286px;
+	height: 40px;
+	width: 120px;
+	cursor: pointer;
+	z-index: 990;
+	opacity: 0.5;
+	border-width: 1px;
+	border-style: solid;
+}
+.bocabutton:hover {
+	top: 266px;
+	height: 80px;
+	width: 240px;
+	z-index: 999;
+	opacity: 1;
+}
+.bocabutton_click {
+	opacity: 1.0;
+}
+
+.bocabutton.boc1 {
+	left: 50px;
+}
+.bocabutton.boc1:hover {
+	left: -10px;
+}
+
+.bocabutton.boc2 {
+	left: 170px;
+}
+.bocabutton.boc2:hover {
+	left: 110px;
+}
+
+.bocabutton.boc3 {
+	left: 290px;
+}
+.bocabutton.boc3:hover {
+	left: 230px;
+}
+
+.bocabutton.boc4 {
+	left: 410px;
+}
+.bocabutton.boc4:hover {
+	left: 350px;
+}
+
+.bocabutton.boc5 {
+	left: 530px;
+}
+.bocabutton.boc5:hover {
+	left: 470px;
+}
+
+.bocabutton.boc6 {
+	left: 650px;
+}
+.bocabutton.boc6:hover {
+	left: 590px;
+}
+
+.bocabutton.boc7 {
+	left: 770px;
+}
+.bocabutton.boc7:hover {
+	left: 710px;
+}
+
+
+		
+h1{
+	font-size: 100%;
+	font-weight: normal;
+	padding-top: 10%;
+		
+}
