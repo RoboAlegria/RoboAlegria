@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Robô da Alegria :: API</title>
+        <link href='//fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+        <style>
+            body {
+                margin: 50px 0 0 0;
+                padding: 0;
+                width: 100%;
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                text-align: center;
+                color: #aaa;
+                font-size: 18px;
+            }
+
+            h1 {
+                color: #719e40;
+                letter-spacing: -3px;
+                font-family: 'Lato', sans-serif;
+                font-size: 100px;
+                font-weight: 200;
+                margin-bottom: 0;
+            }
+
+            table > tbody > tr > td {
+                padding : 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Robô da Alegria</h1>
+        <div>API de desenvolvimento com simulação dos movimentos do robô</div>
+
+        <div class="command_list">
+            <h3>Lista de comandos</h3>
+            
+            <center>
+
+                <?php foreach($command_list as $param => $commands) : ?>
+                    <h4><?php echo $commands['name'];  ?></h4>
+                    
+                    <table class="table" border="1">
+                        <thead>
+                            <tr>
+                                <th>Paramentro</th>
+                                <th>Comando</th>
+                                <th>Descrição</th>
+                                <th>Link</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach($commands['commands'] as $command => $description) : ?>
+                                <tr>
+                                    <?php  $url = "http://".$request->getServerParams()['HTTP_HOST'] . "/?". $param."=".$command; ?>
+
+                                    <td><?php echo $param ?></td>    
+                                    <td><?php echo $command ?></td>    
+                                    <td>
+                                        <img src="assets/images/<?php echo $param.$command; ?>.png" style="width:60px">
+                                        <?php echo $description ?>
+                                    </td>    
+                                    <td> <a href="<?php echo $url ?>"> <?php echo $url ?></a></td>    
+                                </tr>
+                                
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+
+                    <hr />
+                <?php endforeach; ?>  
+            
+            </center>
+            
+        </div>
+
+    </body>
+</html>
