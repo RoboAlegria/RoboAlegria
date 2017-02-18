@@ -1,0 +1,12 @@
+Especificação do Shield:
+- Shield para Arduino Uno
+- Acionamento de até 5 servo motores (J1, J2, J3, J4 e J5)
+- Acionamento de array de matrizes de LED (J6)
+- Comuinicação através de bluetooth (HC-05 ou HC-06) (J7)
+- Comunicação através de wi-fi (ESP8266) (J8)
+- Alimentação do Arduino através de bateria externa (J15) - Colocar jumper em J12 para alimentação externa. Sem o jumper a alimentação será através da porta USB
+- Alimentação dos servo motores por bateria externa (colocando jumper em J13 na posição +6V) ou diretamente do regulador de 5V do Arduino (colocando jumper em J13 na posição +5V)
+- Acionamento de até quatro motores DC (J9 e J10)
+- Remover jumper do conector J11 para programação
+- Barramento para alimentação externa +5V de outros periféricos (J16 e J17)
+- Pinos para entradas/saídas analógicas/digitais adicionais (J18)
