@@ -15,7 +15,7 @@
 
 .movbutton {
 	position: absolute;
-	top: 105px;
+	top: 80px;
 	height: 100px;
 	width: 100px;
 	cursor: pointer;
@@ -59,51 +59,51 @@
 	left: 200px;
 }
 
-.movbutton.mov4 {
+.movbutton.mov5 {
 	left: 350px;
 }
-.movbutton.mov4:hover {
+.movbutton.mov5:hover {
 	left: 300px;
 }
 
-.movbutton.mov5 {
+.movbutton.mov6 {
 	left: 450px;
 }
-.movbutton.mov5:hover {
+.movbutton.mov6:hover {
 	left: 400px;
 }
 
-.movbutton.mov6 {
+.movbutton.mov7 {
 	left: 550px;
 }
-.movbutton.mov6:hover {
+.movbutton.mov7:hover {
 	left: 500px;
 }
 
-.movbutton.mov7 {
+.movbutton.mov9 {
 	left: 650px;
 }
-.movbutton.mov7:hover {
+.movbutton.mov9:hover {
 	left: 600px;
 }
 
-.movbutton.mov8 {
+.movbutton.mov4 {
 	left: 750px;
 }
-.movbutton.mov8:hover {
+.movbutton.mov4:hover {
 	left: 700px;
 }
 
-.movbutton.mov9 {
+.movbutton.mov8 {
 	left: 850px;
 }
-.movbutton.mov9:hover {
+.movbutton.mov8:hover {
 	left: 800px;
 }
 
 .facbutton {
 	position: absolute;
-	top: 206px;
+	top: 181px;
 	height: 100px;
 	width: 100px;
 	cursor: pointer;
@@ -187,6 +187,42 @@
 	left: 800px;
 }
 
+.facbutton.fac10 {
+	top: 282px;
+	left: 50px;
+}
+.facbutton.fac10:hover {
+	top: 247px;
+	left: 0px;
+}
+
+.facbutton.fac11 {
+	top: 282px;
+	left: 150px;
+}
+.facbutton.fac11:hover {
+	top: 247px;
+	left: 100px;
+}
+
+.facbutton.fac12 {
+	top: 282px;
+	left: 250px;
+}
+.facbutton.fac12:hover {
+	top: 247px;	
+	left: 200px;
+}
+
+.facbutton.fac13 {
+	top: 282px;
+	left: 350px;
+}
+.facbutton.fac13:hover {
+	top: 247px;	
+	left: 300px;
+}
+
 .oldbutton {
 	position: absolute;
 	top: 186px;
@@ -210,38 +246,66 @@
 }
 
 .oldbutton.old1 {
-	left: 50px;
+	left: 0px;
 }
 .oldbutton.old1:hover {
-	left: 25px;
+	left: -25px;
 }
 
 .oldbutton.old2 {
-	left: 100px;
+	left: 50px;
 }
 .oldbutton.old2:hover {
-	left: 75px;
+	left: 25px;
 }
 
 .oldbutton.old3 {
-	left: 150px;
+	left: 100px;
 }
 .oldbutton.old3:hover {
-	left: 125px;
+	left: 75px;
 }
 
 .oldbutton.old4 {
-	left: 200px;
+	left: 150px;
 }
 .oldbutton.old4:hover {
-	left: 175px;
+	left: 125px;
 }
 
 .oldbutton.old5 {
-	left: 250px;
+	left: 200px;
 }
 .oldbutton.old5:hover {
+	left: 175px;
+}
+
+.oldbutton.old6 {
+	left: 250px;
+}
+.oldbutton.old6:hover {
 	left: 225px;
+}
+
+.oldbutton.old7 {
+	left: 300px;
+}
+.oldbutton.old7:hover {
+	left: 275px;
+}
+
+.oldbutton.old8 {
+	left: 350px;
+}
+.oldbutton.old8:hover {
+	left: 325px;
+}
+
+.oldbutton.old9 {
+	left: 400px;
+}
+.oldbutton.old9:hover {
+	left: 375px;
 }
 
 
@@ -268,44 +332,72 @@
 }
 
 .olebutton.ole1 {
-	left: 650px;
+	left: 500px;
 }
 .olebutton.ole1:hover {
-	left: 625px;
+	left: 475px;
 }
 
 .olebutton.ole2 {
-	left: 700px;
+	left: 550px;
 }
 .olebutton.ole2:hover {
-	left: 675px;
+	left: 525px;
 }
 
 .olebutton.ole3 {
-	left: 750px;
+	left: 600px;
 }
 .olebutton.ole3:hover {
-	left: 725px;
+	left: 575px;
 }
 
 .olebutton.ole4 {
-	left: 800px;
+	left: 650px;
 }
 .olebutton.ole4:hover {
-	left: 775px;
+	left: 625px;
 }
 
 .olebutton.ole5 {
-	left: 850px;
+	left: 700px;
 }
 .olebutton.ole5:hover {
+	left: 675px;
+}
+
+.olebutton.ole6 {
+	left: 750px;
+}
+.olebutton.ole6:hover {
+	left: 725px;
+}
+
+.olebutton.ole7 {
+	left: 800px;
+}
+.olebutton.ole7:hover {
+	left: 775px;
+}
+
+.olebutton.ole8 {
+	left: 850px;
+}
+.olebutton.ole8:hover {
 	left: 825px;
+}
+
+.olebutton.ole9 {
+	left: 900px;
+}
+.olebutton.ole9:hover {
+	left: 875px;
 }
 
 .bocabutton {
 	position: absolute;
 	top: 286px;
-	height: 40px;
+	height: 60px;
 	width: 120px;
 	cursor: pointer;
 	z-index: 990;
@@ -314,9 +406,9 @@
 	border-style: solid;
 }
 .bocabutton:hover {
-	top: 266px;
-	height: 80px;
-	width: 240px;
+	top: 276px;
+	height: 90px;
+	width: 180px;
 	z-index: 999;
 	opacity: 1;
 }
@@ -325,52 +417,59 @@
 }
 
 .bocabutton.boc1 {
-	left: 50px;
+	left: 0px;
 }
 .bocabutton.boc1:hover {
-	left: -10px;
+	left: -20px;
 }
 
 .bocabutton.boc2 {
-	left: 170px;
+	left: 120px;
 }
 .bocabutton.boc2:hover {
-	left: 110px;
+	left: 100px;
 }
 
 .bocabutton.boc3 {
-	left: 290px;
+	left: 240px;
 }
 .bocabutton.boc3:hover {
-	left: 230px;
+	left: 220px;
 }
 
 .bocabutton.boc4 {
-	left: 410px;
+	left: 360px;
 }
 .bocabutton.boc4:hover {
-	left: 350px;
+	left: 340px;
 }
 
 .bocabutton.boc5 {
-	left: 530px;
+	left: 480px;
 }
 .bocabutton.boc5:hover {
-	left: 470px;
+	left: 460px;
 }
 
 .bocabutton.boc6 {
-	left: 650px;
+	left: 600px;
 }
 .bocabutton.boc6:hover {
-	left: 590px;
+	left: 580px;
 }
 
 .bocabutton.boc7 {
-	left: 770px;
+	left: 720px;
 }
 .bocabutton.boc7:hover {
-	left: 710px;
+	left: 700px;
+}
+
+.bocabutton.boc8 {
+	left: 840px;
+}
+.bocabutton.boc8:hover {
+	left: 820px;
 }
 
 

@@ -5,132 +5,165 @@
 //movimento1 = levantar braço esquerdo
 void mov1()
 {
-  pos2 = pos2max;
-  s2.write(pos2);
   //realizar movimento
-  while(pos1 != pos1min) {
-    pos1 -= 1;
-    s1.write(pos1);
+  while(pos3 != pos3min) {
+    pos3 -= 1;
+    pwm.setPWM(2, 0, map(pos3, 0, 180, SERVOMIN, SERVOMAX));
     delay(100/vel);
-    if (pos1 < pos1min) {
-      pos1 = pos1min;
+    if (pos3 < pos3min) {
+      pos3 = pos3min;
     }
   }
-  //retornar para posição neutra
-  pos_neutra();
+  delay(100);
+  while(pos3 != pos3max) {
+    pos3 += 1;
+    pwm.setPWM(2, 0, map(pos3, 0, 180, SERVOMIN, SERVOMAX));
+    delay(100/vel);
+    if (pos3 > pos3max) {
+      pos3 = pos3max;
+    }
+  }
 }
 
 
 //movimento2 = levantar braço direito
 void mov2()
 {
-  pos4 = pos4min;
-  s4.write(pos4);
   //realizar movimento
-  while(pos3 != pos3max) {
-    pos3 += 1;
-    s3.write(pos3);
+  while(pos1 != pos1max) {
+    pos1 += 1;
+    pwm.setPWM(0, 0, map(pos1, 0, 180, SERVOMIN, SERVOMAX));
     delay(100/vel);
-    if (pos3 > pos3max) {
-      pos3 = pos3max;
+    if (pos1 > pos1max) {
+      pos1 = pos1max;
     }
   }
-  //retornar para posição neutra
-  pos_neutra();
+  delay(100);
+  while(pos1 != pos1min) {
+    pos1 -= 1;
+    pwm.setPWM(0, 0, map(pos1, 0, 180, SERVOMIN, SERVOMAX));
+    delay(100/vel);
+    if (pos1 < pos1min) {
+      pos1 = pos1min;
+    }
+  }
 }
 
 
 //movimento3 = levantar os dois braços
 void mov3()
 {
-  pos2 = pos2max;
-  pos4 = pos4min;
-  s2.write(pos2);        
-  s4.write(pos4);
-  //realizar o movimento  
-  while((pos1 != pos1min) || (pos3!= pos3max)) {
-    pos1 -= 1;
-    pos3 += 1;
-    s1.write(pos1);
-    s3.write(pos3);
+  //realizar movimento
+  while((pos1 != pos1max)||(pos3 != pos3min)) {
+    pos3 -= 1;
+    pos1 += 1;
+    pwm.setPWM(2, 0, map(pos3, 0, 180, SERVOMIN, SERVOMAX));
+    pwm.setPWM(0, 0, map(pos1, 0, 180, SERVOMIN, SERVOMAX));
     delay(100/vel);
-    if (pos1 < pos1min) {
-      pos1 = pos1min;
+    if (pos3 < pos3min) {
+      pos3 = pos3min;
     }
+    if (pos1 > pos1max) {
+      pos1 = pos1max;
+    }
+  }
+  delay(100);
+  while((pos1 != pos1min)||(pos3 != pos3max)) {
+    pos3 += 1;
+    pos1 -= 1;
+    pwm.setPWM(2, 0, map(pos3, 0, 180, SERVOMIN, SERVOMAX));;
+    pwm.setPWM(0, 0, map(pos1, 0, 180, SERVOMIN, SERVOMAX));
+    delay(100/vel);
     if (pos3 > pos3max) {
       pos3 = pos3max;
     }
+    if (pos1 < pos1min) {
+      pos1 = pos1min;
+    }
   }
-  //retornar para posição neutra
-  pos_neutra();
 }
 
 
-//movimento4 = abaixar os dois braços
+//movimento4 = não
 void mov4()
 {  
-  pos_neutra();  
+  for(int k = 0; k < 3 ; k++) {
+  //realizar movimento
+  while((pos5 != pos5min + 40)) {
+    pos5 -= 1;
+    pwm.setPWM(4, 0, map(pos5, 0, 180, SERVOMIN, SERVOMAX));
+    delay(100/vel);
+    if (pos5 < pos5min + 40) {
+      pos5 = pos5min + 40;
+    }
+  }
+  while((pos5 != pos5max - 40)) {
+    pos5 += 1;
+    pwm.setPWM(4, 0, map(pos5, 0, 180, SERVOMIN, SERVOMAX));;
+    delay(100/vel);
+    if (pos5 > pos5max - 40) {
+      pos5 = pos5max - 40;
+    }
+  }
+  }
+
+  while((pos5 != 77)) {
+    pos5 -= 1;
+    pwm.setPWM(4, 0, map(pos5, 0, 180, SERVOMIN, SERVOMAX));
+    delay(100/vel);
+    if (pos5 < 77) {
+      pos5 = 77;
+    }
+  }  
 }
 
 
 //movimento5 = balançar os dois braços abertos
 void mov5()
 {
-    //realizar movimento
-    s1.write(pos1max);
-    s2.write(pos2max);
-    s3.write(pos3min);    
-    s4.write(pos4min);    
-    delay(500);
-    for(int k = 1; k < 3 ; k++) {
-      while((pos1 != pos1min)&& (pos3!= pos3max)) {
-        pos1 -= 1;
-        pos3 += 1;
-        s1.write(pos1);
-        s3.write(pos3);
-        delay(100/vel);
-        if (pos1 < pos1min) {
-          pos1 = pos1min;
-        }
-        if (pos3 > pos3max) {
-          pos3 = pos3max;
-        }
-      }
-      while((pos1 != pos1max)&& (pos3!= pos3min)) {
-        pos1 += 1;
-        pos3 -= 1;
-        s1.write(pos1);
-        s3.write(pos3);
-        delay(100/vel);
-        if (pos1 > pos1max) {
-          pos1 = pos1max;
-        }
-        if (pos3 < pos3min) {
-          pos3 = pos3min;
-        }
-      }
+    for(int k = 0; k < 3 ; k++) {
+  //realizar movimento
+  while((pos1 != pos1max)||(pos3 != pos3min)) {
+    pos3 -= 1;
+    pos1 += 1;
+    pwm.setPWM(2, 0, map(pos3, 0, 180, SERVOMIN, SERVOMAX));
+    pwm.setPWM(0, 0, map(pos1, 0, 180, SERVOMIN, SERVOMAX));
+    delay(100/vel);
+    if (pos3 < pos3min) {
+      pos3 = pos3min;
     }
-    //retornar para posição neutra
-    pos_neutra();
+    if (pos1 > pos1max) {
+      pos1 = pos1max;
+    }
+  }
+  delay(100);
+  while((pos1 != pos1min)||(pos3 != pos3max)) {
+    pos3 += 1;
+    pos1 -= 1;
+    pwm.setPWM(2, 0, map(pos3, 0, 180, SERVOMIN, SERVOMAX));;
+    pwm.setPWM(0, 0, map(pos1, 0, 180, SERVOMIN, SERVOMAX));
+    delay(100/vel);
+    if (pos3 > pos3max) {
+      pos3 = pos3max;
+    }
+    if (pos1 < pos1min) {
+      pos1 = pos1min;
+    }
+  }
+}
 }
 
 
 //movimento6 = balançar os dois braços na frente
 void mov6()
 {
-    s1.write(pos1max);
-    s2.write(pos2max);
-    s3.write(pos3min);
-    s4.write(pos4min);
-    delay(500);
-
     //realizar os movimentos    
-    for(int k = 1; k < 3 ; k++) {
+    for(int k = 0; k < 3 ; k++) {
       while((pos2 != pos2min)&& (pos4!= pos4max)) {
         pos2 -= 1;
         pos4 += 1;
-        s2.write(pos2);
-        s4.write(pos4);
+        pwm.setPWM(3, 0, map(pos4, 0, 180, SERVOMIN, SERVOMAX));
+        pwm.setPWM(1, 0, map(pos2, 0, 180, SERVOMIN, SERVOMAX));
         delay(100/vel);
         if (pos2 < pos2min) {
           pos2 = pos2min;
@@ -142,8 +175,8 @@ void mov6()
       while((pos2 != pos2max)&& (pos4!= pos4min)) {
         pos2 += 1;
         pos4 -= 1;
-        s2.write(pos2);
-        s4.write(pos4);
+        pwm.setPWM(3, 0, map(pos4, 0, 180, SERVOMIN, SERVOMAX));
+        pwm.setPWM(1, 0, map(pos2, 0, 180, SERVOMIN, SERVOMAX));
         delay(100/vel);
         if (pos2 > pos2max) {
           pos2 = pos2max;
@@ -153,96 +186,102 @@ void mov6()
         }
       }
     }
-    //retornar para posiçao neutra
-    pos_neutra();
+      while((pos2 != 40) && (pos4!= 130)) {
+        pos2 -= 1;
+        pos4 += 1;
+        pwm.setPWM(3, 0, map(pos4, 0, 180, SERVOMIN, SERVOMAX));
+        pwm.setPWM(1, 0, map(pos2, 0, 180, SERVOMIN, SERVOMAX));
+        delay(100/vel);
+        if (pos2 < pos2min) {
+          pos2 = pos2min;
+        }
+        if (pos4 > pos4max) {
+          pos4 = pos4max;
+        }
+      }
 }
 
 
 //movimento7 = balançar os dois braços na frente
 void mov7()
 {
-    while ((pos1 != 130) || (pos3 != 60))
-    {
-      pos1 -= 1;
-      pos3 += 1;
-      s1.write(pos1);
-      s3.write(pos3);
-      delay(100/vel);
-      if (pos1 < 130) {
-          pos1 = 130;
-      }
-      if (pos3 > 60) {
-          pos3 = 60;
-      }
-    }
-    while ((pos2 != 70) || (pos4 != 110))
-    {
-      pos2 -= 1;
-      pos4 += 1;
-      s2.write(pos2);
-      s4.write(pos4);
-      delay(100/vel);
-      if (pos2 < 70) {
-          pos2 = 70;
-      }
-      if (pos4 > 110) {
-          pos4 = 110;
-      }
-    }
-    delay(1000);
-    while ((pos2 != pos2max) || (pos4 != pos4min))
-    {
-      pos2 += 1;
-      pos4 -= 1;
-      s2.write(pos2);
-      s4.write(pos4);
-      delay(100/vel);
-      if (pos2 > pos2max) {
-          pos2 = pos2max;
-      }
-      if (pos4 < pos4min) {
+    //realizar os movimentos    
+    for(int k = 0; k < 3 ; k++) {
+      while((pos2 != pos2min)&& (pos4!= pos4min)) {
+        pos2 -= 1;
+        pos4 -= 1;
+        pwm.setPWM(3, 0, map(pos4, 0, 180, SERVOMIN, SERVOMAX));
+        pwm.setPWM(1, 0, map(pos2, 0, 180, SERVOMIN, SERVOMAX));
+        delay(100/vel);
+        if (pos2 < pos2min) {
+          pos2 = pos2min;
+        }
+        if (pos4 < pos4min) {
           pos4 = pos4min;
+        }
+      }
+      while((pos2 != pos2max)&& (pos4!= pos4max)) {
+        pos2 += 1;
+        pos4 += 1;
+        pwm.setPWM(3, 0, map(pos4, 0, 180, SERVOMIN, SERVOMAX));
+        pwm.setPWM(1, 0, map(pos2, 0, 180, SERVOMIN, SERVOMAX));
+        delay(100/vel);
+        if (pos2 > pos2max) {
+          pos2 = pos2max;
+        }
+        if (pos4 > pos4max) {
+          pos4 = pos4max;
+        }
       }
     }
-    //retornar para posição neutra
-    pos_neutra();  
+      while((pos2 != 40) && (pos4!= 130)) {
+        pos2 -= 1;
+        pos4 -= 1;
+        pwm.setPWM(3, 0, map(pos4, 0, 180, SERVOMIN, SERVOMAX));
+        pwm.setPWM(1, 0, map(pos2, 0, 180, SERVOMIN, SERVOMAX));
+        delay(100/vel);
+        if (pos2 < pos2min) {
+          pos2 = pos2min;
+        }
+        if (pos4 < pos4min) {
+          pos4 = pos4max;
+        }
+      }
 }
 
 
 //movimento8 = girar os braços
 void mov8()
 {
-    //abrir os braços
-    while ((pos1 != 130) || (pos3 != 60))
-    {
-      pos1 -= 1;
-      pos3 += 1;
-      s1.write(pos1);
-      s3.write(pos3);
-      delay(100/vel);
-      if (pos1 < 130) {
-          pos1 = 130;
-      }
-      if (pos3 > 60) {
-          pos3 = 60;
-      }
+ for(int k = 0; k < 3 ; k++) {
+  //realizar movimento
+  while((pos6 != pos6min)) {
+    pos6 -= 1;
+    pwm.setPWM(5, 0, map(pos6, 0, 180, SERVOMIN, SERVOMAX));
+    delay(100/vel);
+    if (pos6 < pos6min) {
+      pos6 = pos6min;
     }
-    pos2 = 140;
-    pos4 = 40;
-    s2.write(pos2);
-    s4.write(pos4);
-    float theta = 0;
-    float thetar = 0;
-    for (theta; theta < 720; theta++) {
-      thetar = theta*3.14/180;
-      s1.write(pos1 + 40*sin(thetar));
-      s2.write(pos2 + 40*cos(thetar));
-      s3.write(pos3 - 40*sin(thetar));
-      s4.write(pos4 - 40*cos(thetar));
-      delay(100/vel);
+  }
+  while((pos6 != pos6max)) {
+    pos6 += 1;
+    pwm.setPWM(5, 0, map(pos6, 0, 180, SERVOMIN, SERVOMAX));;
+    delay(100/vel);
+    if (pos6 > pos6max) {
+      pos6 = pos6max;
     }
-    //retornar para posição neutra
-    pos_neutra();
+  }
+  }
+
+  while((pos6 != 40)) {
+    pos6 -= 1;
+    pwm.setPWM(5, 0, map(pos6, 0, 180, SERVOMIN, SERVOMAX));
+    delay(100/vel);
+    if (pos6 < 40) {
+      pos6 = 40;
+    }
+  }
+  
 }
 
 
@@ -251,70 +290,33 @@ void mov9()
 {  
     //realizar movimento
     //levantar o braço
-    while(pos1!= pos1min) {
-        pos1 -= 1;
-        s1.write(pos1);
+    while(pos2!= pos2max) {
+        pos2 += 1;
+        pwm.setPWM(1, 0, map(pos2, 0, 180, SERVOMIN, SERVOMAX));
         delay(100/vel);
-        if (pos1 < pos1min) {
-          pos1 = pos1min;
+        if (pos2 > pos2max) {
+          pos2 = pos2max;
         }
       }
-    while(pos2 != (pos2max - 20)) {
-        pos2 -= 1;
-        s2.write(pos2);
-        delay(100/vel);
-    }  
     //acenar
     for(int k = 1; k < 5 ; k++) {
-      while(pos1 != (pos1min + 30)) {
+      while(pos1 != (pos1max - 50)) {
         pos1 += 1;
-        s1.write(pos1);
+        pwm.setPWM(0, 0, map(pos1, 0, 180, SERVOMIN, SERVOMAX));
         delay(100/vel);
       }
       while(pos1 != pos1min) {
         pos1 -= 1;
-        s1.write(pos1);
+        pwm.setPWM(0, 0, map(pos1, 0, 180, SERVOMIN, SERVOMAX));
         delay(100/vel);
       }
     }
-    while(pos2 != pos2max) {
-        pos2 += 1;
-        s2.write(pos2);
+    while(pos2 != 40) {
+        pos2 -= 1;
+        pwm.setPWM(1, 0, map(pos2, 0, 180, SERVOMIN, SERVOMAX));
         delay(100/vel);
+        if (pos2 < pos2min) {
+          pos2 = pos2min;
+        }
     }  
-    //retornar para posição neutra
-    pos_neutra();  
-}
-
-//retornar para posição neutra dos braços
-void pos_neutra()
-{
-
-  while((pos1 != pos1max)||(pos3 != pos3min)) {
-    pos1 += 1;
-    pos3 -= 1;
-    s1.write(pos1);
-    s3.write(pos3);
-    delay(100/vel);
-    if (pos1 > pos1max) {
-      pos1 = pos1max;
-    }
-    if (pos3 < pos3min) {
-      pos3 = pos3min;
-    }
-  }
-  
-  while((pos4 != pos4min)||(pos2 != pos2max)) {
-    pos4 -= 1;
-    pos2 += 1;
-    s4.write(pos4);
-    s2.write(pos2);
-    delay(100/vel);
-    if (pos4 < pos4min) {
-      pos4 = pos4min;
-    }
-    if (pos2 > pos2max) {
-      pos2 = pos2max;
-    }
-  }
 }

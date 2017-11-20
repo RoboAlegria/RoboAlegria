@@ -44,7 +44,7 @@
 		
 			<form name="myform" action="" method="GET">
 				IP Webcam (IP):
-				<input type="text" name="inputbox" value="192.168.0.5">
+				<input type="text" name="inputbox" value="192.168.0.18">
 				<input type="button" name="button1" value="Carregar" onClick="readUrlAV(this.form)">
 			</form>
 
@@ -104,6 +104,10 @@
 					<img class="facbutton fac7" src="images/rosto7.png">
 					<img class="facbutton fac8" src="images/rosto8.png">
 					<img class="facbutton fac9" src="images/rosto9.png">
+					<img class="facbutton fac10" src="images/rosto10.png">
+					<img class="facbutton fac11" src="images/rosto11.png">
+					<img class="facbutton fac12" src="images/rosto12.png">
+					<img class="facbutton fac13" src="images/rosto13.png">
 				</div>
 		 
 				<div id="tab2" class="tab">
@@ -113,30 +117,45 @@
 		 
 				<div id="tab3" class="tab">
 					<p>Movimentos e faces personalizados através dos controles de entrada.</p>            
-					<p style="margin: 0; position: absolute; top: 85px; left: 130px; width:200px; height:40px;"> Servo 1 </p>
-					<input type="range" min="10" max="170" onmouseup="mouseUpSr1(this.value)" onchange="updateTextInput1(this.value)" style="margin: 0; position: absolute; top: 95px; left: 50px; width:200px; height:40px;" />
-					<input type="text" id="s1textInput" value="" style="margin: 0; position: absolute; top: 125px; left: 150px; border: none;">
-					<p style="margin: 0; position: absolute; top: 85px; left: 340px; width:200px; height:40px;"> Servo 2 </p>
-					<input type="range" min="10" max="170" onmouseup="mouseUpSr2(this.value)" onchange="updateTextInput2(this.value)" style="margin: 0; position: absolute; top: 95px; left: 270px; width:200px; height:40px;" />
-					<input type="text" id="s2textInput" value="" style="margin: 0; position: absolute; top: 125px; left: 370px; border: none;">
-					<p style="margin: 0; position: absolute; top: 85px; left: 560px; width:200px; height:40px;"> Servo 3 </p>
-					<input type="range" min="10" max="170" onmouseup="mouseUpSr3(this.value)" onchange="updateTextInput3(this.value)" style="margin: 0; position: absolute; top: 95px; left: 490px; width:200px; height:40px;" />
-					<input type="text" id="s3textInput" value="" style="margin: 0; position: absolute; top: 125px; left: 590px; border: none;">
-					<p style="margin: 0; position: absolute; top: 85px; left: 780px; width:200px; height:40px;"> Servo 4 </p>
-					<input type="range" min="10" max="170" onmouseup="mouseUpSr4(this.value)" onchange="updateTextInput4(this.value)" style="margin: 0; position: absolute; top: 95px; left: 710px; width:200px; height:40px;" />
-					<input type="text" id="s4textInput" value="" style="margin: 0; position: absolute; top: 125px; left: 810px; border: none;">
+					<p style="margin: 0; position: absolute; top: 85px; left: 50px; width:200px; height:40px;"> Servo 1 </p>
+					<input type="range" min="10" max="170" onmouseup="mouseUpSr1(this.value)" onchange="updateTextInput1(this.value)" style="margin: 0; position: absolute; top: 95px; left: 50px; width:150px; height:40px;" />
+					<input type="text" id="s1textInput" value="" style="margin: 0; position: absolute; top: 125px; left: 50px; border: none;">
+					<p style="margin: 0; position: absolute; top: 85px; left: 210px; width:200px; height:40px;"> Servo 2 </p>
+					<input type="range" min="10" max="170" onmouseup="mouseUpSr2(this.value)" onchange="updateTextInput2(this.value)" style="margin: 0; position: absolute; top: 95px; left: 210px; width:150px; height:40px;" />
+					<input type="text" id="s2textInput" value="" style="margin: 0; position: absolute; top: 125px; left: 210px; border: none;">
+					<p style="margin: 0; position: absolute; top: 85px; left: 370px; width:200px; height:40px;"> Servo 3 </p>
+					<input type="range" min="10" max="170" onmouseup="mouseUpSr3(this.value)" onchange="updateTextInput3(this.value)" style="margin: 0; position: absolute; top: 95px; left: 370px; width:150px; height:40px;" />
+					<input type="text" id="s3textInput" value="" style="margin: 0; position: absolute; top: 125px; left: 370px; border: none;">
+					<p style="margin: 0; position: absolute; top: 85px; left: 530px; width:200px; height:40px;"> Servo 4 </p>
+					<input type="range" min="10" max="170" onmouseup="mouseUpSr4(this.value)" onchange="updateTextInput4(this.value)" style="margin: 0; position: absolute; top: 95px; left: 530px; width:150px; height:40px;" />
+					<input type="text" id="s4textInput" value="" style="margin: 0; position: absolute; top: 125px; left: 530px; border: none;">
+					<p style="margin: 0; position: absolute; top: 85px; left: 690px; width:200px; height:40px;"> Servo 5 </p>
+					<input type="range" min="10" max="170" onmouseup="mouseUpSr5(this.value)" onchange="updateTextInput5(this.value)" style="margin: 0; position: absolute; top: 95px; left: 690px; width:150px; height:40px;" />
+					<input type="text" id="s5textInput" value="" style="margin: 0; position: absolute; top: 125px; left: 690px; border: none;">
+					<p style="margin: 0; position: absolute; top: 85px; left: 850px; width:200px; height:40px;"> Servo 6 </p>
+					<input type="range" min="10" max="170" onmouseup="mouseUpSr6(this.value)" onchange="updateTextInput6(this.value)" style="margin: 0; position: absolute; top: 95px; left: 850px; width:150px; height:40px;" />
+					<input type="text" id="s6textInput" value="" style="margin: 0; position: absolute; top: 125px; left: 850px; border: none;">
+					
 					<p style="margin: 0; position: absolute; top: 165px; left: 150px; width:200px; height:40px;">Olho direito</p>
-					<img class="oldbutton old1" src="images/olho1.png">
-					<img class="oldbutton old2" src="images/olho2.png">
-					<img class="oldbutton old3" src="images/olho3.png">
-					<img class="oldbutton old4" src="images/olho4.png">
-					<img class="oldbutton old5" src="images/olho5.png">
+					<img class="oldbutton old1" src="images/olho1d.png">
+					<img class="oldbutton old2" src="images/olho2d.png">
+					<img class="oldbutton old3" src="images/olho3d.png">
+					<img class="oldbutton old4" src="images/olho4d.png">
+					<img class="oldbutton old5" src="images/olho5d.png">
+					<img class="oldbutton old6" src="images/olho6d.png">
+					<img class="oldbutton old7" src="images/olho7d.png">
+					<img class="oldbutton old8" src="images/olho8d.png">
+					<img class="oldbutton old9" src="images/olho9d.png">
 					<p style="margin: 0; position: absolute; top: 165px; left: 740px; width:200px; height:40px;">Olho esquerdo</p>
-					<img class="olebutton ole1" src="images/olho1.png">
-					<img class="olebutton ole2" src="images/olho2.png">
-					<img class="olebutton ole3" src="images/olho3.png">
-					<img class="olebutton ole4" src="images/olho4.png">
-					<img class="olebutton ole5" src="images/olho5.png">
+					<img class="olebutton ole1" src="images/olho1e.png">
+					<img class="olebutton ole2" src="images/olho2e.png">
+					<img class="olebutton ole3" src="images/olho3e.png">
+					<img class="olebutton ole4" src="images/olho4e.png">
+					<img class="olebutton ole5" src="images/olho5e.png">
+					<img class="olebutton ole6" src="images/olho6e.png">
+					<img class="olebutton ole7" src="images/olho7e.png">
+					<img class="olebutton ole8" src="images/olho8e.png">
+					<img class="olebutton ole9" src="images/olho9e.png">
 					<p style="margin: 0; position: absolute; top: 265px; left: 460px; width:200px; height:40px;">Boca</p>
 					<img class="bocabutton boc1" src="images/boca1.png">
 					<img class="bocabutton boc2" src="images/boca2.png">
@@ -145,11 +164,12 @@
 					<img class="bocabutton boc5" src="images/boca5.png">
 					<img class="bocabutton boc6" src="images/boca6.png">
 					<img class="bocabutton boc7" src="images/boca7.png">
+					<img class="bocabutton boc8" src="images/boca8.png">
 				</div>
 			</div>
 		</div>
 
-		<table style="margin: 0; position: absolute; top: 400px; left: 0px; width:700px; height:80px;">
+		<table style="margin: 0; position: absolute; top: 440px; left: 0px; width:700px; height:80px;">
 			<tr><td>Log da conversa:</td></tr>
 			<tr>
 				<td colspan="3">

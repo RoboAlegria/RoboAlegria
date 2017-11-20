@@ -20,35 +20,27 @@ void setup()
   lc.setIntensity(4, 1);
   lc.clearDisplay(4);
 
+  pwm.begin();
+  pwm.setPWMFreq(60);  // Analog servos run at ~60 Hz updates
+
   //manter o rosto dormindo durante a inicialização (até conectar com o wifi)
   fac8();
 
   //inicialização dos braços
-  //associar os servomotores
-  s1.attach(SERV1);
-  s2.attach(SERV2);
-  s3.attach(SERV3);
-  s4.attach(SERV4);
-  //posicionar os braços na posição neutra
-  s1.write(pos1max);
-  s2.write(pos2max);
-  s3.write(pos3min);
-  s4.write(pos4min);
-  //desassociar os servomotores
-  s1.detach();
-  s2.detach();
-  s3.detach();
-  s4.detach();
-
+  pwm.setPWM(0, 0, map(pos1, 0, 180, SERVOMIN, SERVOMAX));
+  pwm.setPWM(1, 0, map(pos2, 0, 180, SERVOMIN, SERVOMAX));
+  pwm.setPWM(2, 0, map(pos3, 0, 180, SERVOMIN, SERVOMAX));
+  pwm.setPWM(3, 0, map(pos4, 0, 180, SERVOMIN, SERVOMAX));
+  pwm.setPWM(4, 0, map(pos5, 0, 180, SERVOMIN, SERVOMAX));
+  pwm.setPWM(5, 0, map(pos6, 0, 180, SERVOMIN, SERVOMAX));
+  
   //inicialização da comunicação serial
   Serial.begin(9600);
   esp8266.begin(19200);
 
   sendData("AT+RST\r\n", 2000, DEBUG); //resetar módulo
   sendData("AT+CWMODE=1\r\n", 1000, DEBUG); //setar modo station
-  //sendData("AT+CWJAP=\"Connectify-me\",\"12345678\"\r\n", 2000, DEBUG);   //conectar com a rede wifi
-  //sendData("AT+CWJAP=\"MyPublicWiFi\",\"123456789\"\r\n", 2000, DEBUG);   //conectar com a rede wifi
-  sendData("AT+CWJAP=\"Thaiane\",\"1391162683\"\r\n", 2000, DEBUG);   //conectar com a rede wifi
+  sendData("AT+CWJAP=\"Connectify-me\",\"12345678\"\r\n", 2000, DEBUG);   //conectar com a rede wifi
   while (!esp8266.find("OK")) { //aguardar estabelecer conexão
   }
   
