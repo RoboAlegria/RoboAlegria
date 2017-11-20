@@ -1,4 +1,8 @@
-// Robô da Alegria v2.0 By Igor Fonseca Albuquerque
+// Robô da Alegria v2.0
+//By Igor Fonseca Albuquerque
+//   Thiago Ferrauche
+//   Yhan Christian
+//   Paulo de Azevedo Jr.
 
 //**********************************
 //Inicialização de variávies globais
