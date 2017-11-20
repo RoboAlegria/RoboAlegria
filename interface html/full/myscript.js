@@ -258,6 +258,42 @@ setInterval(soundCheck, 300);
 							{Connection: close};
 						}
 					});
+					$('.fac10').click(function() {
+						if (latch == false) {
+							$(this).addClass('facbutton_click');
+							TextVar = myform2.inputbox.value;
+							ArduinoVar = "http://" + TextVar + ":80";
+							$.get( ArduinoVar, { "fac": 100 })	;
+							{Connection: close};
+						}
+					});					
+					$('.fac11').click(function() {
+						if (latch == false) {
+							$(this).addClass('facbutton_click');
+							TextVar = myform2.inputbox.value;
+							ArduinoVar = "http://" + TextVar + ":80";
+							$.get( ArduinoVar, { "fac": 110 })	;
+							{Connection: close};
+						}
+					});
+					$('.fac12').click(function() {
+						if (latch == false) {
+							$(this).addClass('facbutton_click');
+							TextVar = myform2.inputbox.value;
+							ArduinoVar = "http://" + TextVar + ":80";
+							$.get( ArduinoVar, { "fac": 120 })	;
+							{Connection: close};
+						}
+					});
+					$('.fac13').click(function() {
+						if (latch == false) {
+							$(this).addClass('facbutton_click');
+							TextVar = myform2.inputbox.value;
+							ArduinoVar = "http://" + TextVar + ":80";
+							$.get( ArduinoVar, { "fac": 130 })	;
+							{Connection: close};
+						}
+					});					
 					$('.oldbutton').click(function() {
 						var elems = document.querySelectorAll(".oldbutton_click");
 							[].forEach.call(elems, function(el) {
@@ -309,6 +345,43 @@ setInterval(soundCheck, 300);
 							{Connection: close};
 						}
 					});
+					$('.old6').click(function() {
+						if (latch == false) {
+							$(this).addClass('oldbutton_click');
+							TextVar = myform2.inputbox.value;
+							ArduinoVar = "http://" + TextVar + ":80";
+							$.get( ArduinoVar, { "old": 60 })	;
+							{Connection: close};
+						}
+					});
+					$('.old7').click(function() {
+						if (latch == false) {
+							$(this).addClass('oldbutton_click');
+							TextVar = myform2.inputbox.value;
+							ArduinoVar = "http://" + TextVar + ":80";
+							$.get( ArduinoVar, { "old": 70 })	;
+							{Connection: close};
+						}
+					});
+					$('.old8').click(function() {
+						if (latch == false) {
+							$(this).addClass('oldbutton_click');
+							TextVar = myform2.inputbox.value;
+							ArduinoVar = "http://" + TextVar + ":80";
+							$.get( ArduinoVar, { "old": 80 })	;
+							{Connection: close};
+						}
+					});
+					$('.old9').click(function() {
+						if (latch == false) {
+							$(this).addClass('oldbutton_click');
+							TextVar = myform2.inputbox.value;
+							ArduinoVar = "http://" + TextVar + ":80";
+							$.get( ArduinoVar, { "old": 90 })	;
+							{Connection: close};
+						}
+					});
+					
 					$('.olebutton').click(function() {
 						var elems = document.querySelectorAll(".olebutton_click");
 							[].forEach.call(elems, function(el) {
@@ -360,6 +433,42 @@ setInterval(soundCheck, 300);
 							{Connection: close};
 						}
 					});
+					$('.ole6').click(function() {
+						if (latch == false) {
+							$(this).addClass('olebutton_click');
+							TextVar = myform2.inputbox.value;
+							ArduinoVar = "http://" + TextVar + ":80";
+							$.get( ArduinoVar, { "ole": 60 })	;
+							{Connection: close};
+						}
+					});
+					$('.ole7').click(function() {
+						if (latch == false) {
+							$(this).addClass('olebutton_click');
+							TextVar = myform2.inputbox.value;
+							ArduinoVar = "http://" + TextVar + ":80";
+							$.get( ArduinoVar, { "ole": 70 })	;
+							{Connection: close};
+						}
+					});
+					$('.ole8').click(function() {
+						if (latch == false) {
+							$(this).addClass('olebutton_click');
+							TextVar = myform2.inputbox.value;
+							ArduinoVar = "http://" + TextVar + ":80";
+							$.get( ArduinoVar, { "ole": 80 })	;
+							{Connection: close};
+						}
+					});
+					$('.ole9').click(function() {
+						if (latch == false) {
+							$(this).addClass('olebutton_click');
+							TextVar = myform2.inputbox.value;
+							ArduinoVar = "http://" + TextVar + ":80";
+							$.get( ArduinoVar, { "ole": 90 })	;
+							{Connection: close};
+						}
+					});					
 					$('.bocabutton').click(function() {
 						var elems = document.querySelectorAll(".bocabutton_click");
 							[].forEach.call(elems, function(el) {
@@ -429,6 +538,15 @@ setInterval(soundCheck, 300);
 							{Connection: close};
 						}
 					});
+					$('.boc8').click(function() {
+						if (latch == false) {
+							$(this).addClass('bocabutton_click');
+							TextVar = myform2.inputbox.value;
+							ArduinoVar = "http://" + TextVar + ":80";
+							$.get( ArduinoVar, { "boc": 90 })	;
+							{Connection: close};
+						}
+					});
 					
 					
 									
@@ -465,7 +583,7 @@ function soundCheck(){
 					if (latch == false) {
 						TextVar = myform2.inputbox.value;
 						ArduinoVar = "http://" + TextVar + ":80";
-						$.get( ArduinoVar, { "fac": 100 })	;
+						$.get( ArduinoVar, { "fac": 140 })	;
 						{Connection: close};
 						latch = true;
 						setTimeout(unlatch, 500);
@@ -556,7 +674,6 @@ function mouseUpSr3(angle)
 	TextVar = myform2.inputbox.value;
 	ArduinoVar = "http://" + TextVar + ":80";
 	$.get( ArduinoVar, { "sr3": angle })	;
-	{Connection: close};
 }
 function mouseUpSr4(angle)
 {
@@ -565,6 +682,24 @@ function mouseUpSr4(angle)
 	$.get( ArduinoVar, { "sr4": angle })	;
 	{Connection: close};
 }
+function mouseUpSr5(angle)
+{
+	TextVar = myform2.inputbox.value;
+	ArduinoVar = "http://" + TextVar + ":80";
+	$.get( ArduinoVar, { "sr5": angle })	;
+	{Connection: close};
+}
+function mouseUpSr6(angle)
+{
+	TextVar = myform2.inputbox.value;
+	ArduinoVar = "http://" + TextVar + ":80";
+	$.get( ArduinoVar, { "sr6": angle })	;
+	{Connection: close};
+}
+
+
+
+
 function mouseUpVel(speed)
 {
 	TextVar = myform2.inputbox.value;
@@ -584,5 +719,11 @@ function updateTextInput3(val) {
 }
 function updateTextInput4(val) {
     document.getElementById('s4textInput').value=val;
+}
+function updateTextInput5(val) {
+    document.getElementById('s5textInput').value=val;
+}
+function updateTextInput6(val) {
+    document.getElementById('s6textInput').value=val;
 }
 

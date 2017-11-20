@@ -6,9 +6,9 @@ void loop()
   int delta = millis() - tempo0;
   if(delta > 3000) {              //se o tempo for superior a 10 segundos
     if(piscar == true) {
-//      display_olhos(olho_dormindo, olho_dormindo);  //piscar olhos
-      display_olhos(olho_dormindo, 0);  //piscar olhos
-      display_olhos(olho_dormindo, 1);  //piscar olhos
+//    display_olhos(olho_dormindo, olho_dormindo);  //piscar olhos
+      display_olhos(olho_fechado_baixo_e, 2);  //piscar olhos
+      display_olhos(olho_fechado_baixo_d, 1);  //piscar olhos
       delay(200);
       restore();
       tempo0 = millis();
@@ -44,21 +44,19 @@ void loop()
          if (valor <= pos1min) {
            valor = pos1min;
          }
-         s1.attach(SERV1); //associar servo
          //avançar até o ângulo desejado
          while(pos1 != valor) {
            if (pos1 > valor) {
              pos1 -= 1;
-             s1.write(pos1);
+             pwm.setPWM(0, 0, map(pos1, 0, 180, SERVOMIN, SERVOMAX));
              delay(100/vel);
            }
            if (pos1 < valor) {
              pos1 += 1;
-             s1.write(pos1);
+             pwm.setPWM(0, 0, map(pos1, 0, 180, SERVOMIN, SERVOMAX));
              delay(100/vel);
            }
          }
-         s1.detach(); //desassociar servo
       }
 
       //mover o servo2 no angulo recebido em valor
@@ -70,49 +68,47 @@ void loop()
          if (valor <= pos2min) {
            valor = pos2min;
          }
-         s2.attach(SERV2);
          while(pos2 != valor) {
            if (pos2 > valor) {
              pos2 -= 1;
-             s2.write(pos2);
+             pwm.setPWM(1, 0, map(pos2, 0, 180, SERVOMIN, SERVOMAX));
              delay(100/vel);
            }
            if (pos2 < valor) {
              pos2 += 1;
-             s2.write(pos2);
+             pwm.setPWM(1, 0, map(pos2, 0, 180, SERVOMIN, SERVOMAX));
              delay(100/vel);
            }
          }   
-         s2.detach();     
       }
       
       //mover o servo3 no angulo recebido em valor
       if(comando == "sr3") {
          //limitar o angulo de entrada
+         valor = 180 - valor;
          if (valor >= pos3max) {
            valor = pos3max;
          }
          if (valor <= pos3min) {
            valor = pos3min;
          }
-         s3.attach(SERV3);
          while(pos3 != valor) {
            if (pos3 > valor) {
              pos3 -= 1;
-             s3.write(pos3);
+             pwm.setPWM(2, 0, map(pos3, 0, 180, SERVOMIN, SERVOMAX));
              delay(100/vel);
            }
            if (pos3 < valor) {
              pos3 += 1;
-             s3.write(pos3);
+             pwm.setPWM(2, 0, map(pos3, 0, 180, SERVOMIN, SERVOMAX));
              delay(100/vel);
            }
          }   
-         s3.detach();     
       }
       
       //mover o servo4 no angulo recebido em valor
       if(comando == "sr4") {
+         valor = 180 - valor;
          //limitar o angulo de entrada
          if (valor >= pos4max) {
            valor = pos4max;
@@ -120,20 +116,65 @@ void loop()
          if (valor <= pos4min) {
            valor = pos4min;
          }        
-         s4.attach(SERV4);
          while(pos4 != valor) {
            if (pos4 > valor) {
              pos4 -= 1;
-             s4.write(pos4);
+             pwm.setPWM(3, 0, map(pos4, 0, 180, SERVOMIN, SERVOMAX));
              delay(100/vel);
            }
            if (pos4 < valor) {
              pos4 += 1;
-             s4.write(pos4);
+             pwm.setPWM(3, 0, map(pos4, 0, 180, SERVOMIN, SERVOMAX));
              delay(100/vel);
            }
-         }   
-         s4.detach();     
+         }       
+      }
+
+      //mover o servo5 no angulo recebido em valor
+      if(comando == "sr5") {
+         //limitar o angulo de entrada
+         if (valor >= pos5max) {
+           valor = pos5max;
+         }
+         if (valor <= pos5min) {
+           valor = pos5min;
+         }        
+         while(pos5 != valor) {
+           if (pos5 > valor) {
+             pos5 -= 1;
+             pwm.setPWM(4, 0, map(pos5, 0, 180, SERVOMIN, SERVOMAX));
+             delay(100/vel);
+           }
+           if (pos5 < valor) {
+             pos5 += 1;
+             pwm.setPWM(4, 0, map(pos5, 0, 180, SERVOMIN, SERVOMAX));
+             delay(100/vel);
+           }
+         }       
+      }
+
+      //mover o servo6 no angulo recebido em valor
+      if(comando == "sr6") {
+         valor = 180 - valor;
+         //limitar o angulo de entrada
+         if (valor >= pos6max) {
+           valor = pos6max;
+         }
+         if (valor <= pos6min) {
+           valor = pos6min;
+         }        
+         while(pos6 != valor) {
+           if (pos6 > valor) {
+             pos6 -= 1;
+             pwm.setPWM(5, 0, map(pos6, 0, 180, SERVOMIN, SERVOMAX));
+             delay(100/vel);
+           }
+           if (pos6 < valor) {
+             pos6 += 1;
+             pwm.setPWM(5, 0, map(pos6, 0, 180, SERVOMIN, SERVOMAX));
+             delay(100/vel);
+           }
+         }       
       }
 
 
@@ -142,11 +183,6 @@ void loop()
       //**************************************
 
       if(comando == "mov") {
-         //associar servos
-        s1.attach(SERV1);
-        s2.attach(SERV2);
-        s3.attach(SERV3);
-        s4.attach(SERV4);
 
         if(valor == 10) {
             mov1(); //movimento1 = levantar braço esquerdo
@@ -175,12 +211,7 @@ void loop()
         if(valor == 90) {
             mov9(); //movimento 9 = aceno
         }
- 
-        //desassociar servos
-        s1.detach();
-        s2.detach();
-        s3.detach();
-        s4.detach();
+
       }
       
       //**********************************
@@ -189,80 +220,124 @@ void loop()
 
       if(comando == "fac") {
         if(valor == 10) {
-          fac1();
+          fac1(); //feliz
         }
         if(valor == 20) {
-          fac2();
+          fac2(); //muito feliz
         }
         if(valor == 30) {
-          fac3();
+          fac3(); //triste
         }
         if(valor == 40) {
-          fac4();
+          fac4(); //muito triste
         }
         if(valor == 50) {
-          fac5();
+          fac5(); //língua para fora
         }
         if(valor == 60) {
-          fac6();
+          fac6(); //morto
         }
         if(valor == 70) {
-          fac7();
+          fac7(); //assustado
         }
         if(valor == 80) {
-          fac8();
+          fac8(); //dormindo
         }
         if(valor == 90) {
-          fac9();
+          fac9(); //confuso
         }
         if(valor == 100) {
-          fac10();
+          fac10(); //entediado
         }  
+        if(valor == 110) {
+          fac11(); //apaixonado
+        }  
+        if(valor == 120) {
+          fac12(); //nojo
+        }  
+        if(valor == 130) {
+          fac13(); //raiva
+        }
+        if(valor == 140) {
+          fac14(); //falando
+        } 
       }
 
       if(comando == "old") {
         if(valor == 10) {
-          display_olhos(olho_neutro, 0);
+          display_olhos(olho_neutro_d, 1);
           olho_direito = 1;
         }
         if(valor == 20) {
-          display_olhos(olho_arregalado, 0);
+          display_olhos(olho_arregalado_d, 1);
           olho_direito = 2;
         }
         if(valor == 30) {
-          display_olhos(olho_fechado, 0);
+          display_olhos(olho_fechado_cima_d, 1);
           olho_direito = 3;
         }
         if(valor == 40) {
-          display_olhos(olho_dormindo, 0);
+          display_olhos(olho_fechado_baixo_d, 1);
           olho_direito = 4;
         }
         if(valor == 50) {
-          display_olhos(olho_x, 0);
+          display_olhos(olho_morto_d, 1);
           olho_direito = 5;
+        }
+        if(valor == 60) {
+          display_olhos(olho_triste_d, 1);
+          olho_direito = 6;
+        }
+        if(valor == 70) {
+          display_olhos(olho_entediado_d, 1);
+          olho_direito = 7;
+        }
+        if(valor == 80) {
+          display_olhos(olho_raiva_d, 1);
+          olho_direito = 8;
+        }
+        if(valor == 90) {
+          display_olhos(olho_apaixonado_d, 1);
+          olho_direito = 9;
         }
       }
       
       if(comando == "ole") {
         if(valor == 10) {
-          display_olhos(olho_neutro, 1);
+          display_olhos(olho_neutro_e, 2);
           olho_esquerdo = 1;
         }
         if(valor == 20) {
-          display_olhos(olho_arregalado, 1);
+          display_olhos(olho_arregalado_e, 2);
           olho_esquerdo = 2;
         }
         if(valor == 30) {
-          display_olhos(olho_fechado, 1);
+          display_olhos(olho_fechado_cima_e, 2);
           olho_esquerdo = 3;          
         }
         if(valor == 40) {
-          display_olhos(olho_dormindo, 1);
+          display_olhos(olho_fechado_baixo_e, 2);
           olho_esquerdo = 4;          
         }
         if(valor == 50) {
-          display_olhos(olho_x, 1);
+          display_olhos(olho_morto_e, 2);
           olho_esquerdo = 5;          
+        }
+        if(valor == 60) {
+          display_olhos(olho_triste_e, 2);
+          olho_esquerdo = 6;          
+        }
+        if(valor == 70) {
+          display_olhos(olho_entediado_e, 2);
+          olho_esquerdo = 7;          
+        }
+        if(valor == 80) {
+          display_olhos(olho_raiva_e, 2);
+          olho_esquerdo = 8;          
+        }                        
+        if(valor == 90) {
+          display_olhos(olho_apaixonado_e, 2);
+          olho_esquerdo = 9;          
         }
       }
       
@@ -272,7 +347,7 @@ void loop()
           boca = 1;
         }
         if(valor == 20) {
-          display_boca(aberta_alegre);
+          display_boca(boca_muito_feliz);
           boca = 2;
         }
         if(valor == 30) {
@@ -280,7 +355,7 @@ void loop()
           boca = 3;          
         }
         if(valor == 40) {
-          display_boca(aberta_triste);
+          display_boca(boca_muito_triste);
           boca = 4;          
         }
         if(valor == 50) {
@@ -292,9 +367,18 @@ void loop()
           boca = 6;          
         }
         if(valor == 70) {
-          display_boca(boca_nojo);
+          display_boca(boca_neutra);
           boca = 7;          
         }
+        if(valor == 80) {
+          display_boca(boca_neutra);
+          boca = 8;          
+        }
+        if(valor == 90) {
+          display_boca(boca_nojo);
+          boca = 9;          
+        }
+
         
       }
       //***************************************
