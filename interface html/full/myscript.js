@@ -22,6 +22,65 @@ var latch = false;
 var rotation = 0;
 var rotationl = 0;
 
+
+document.onkeydown = checkKeyDown;
+function checkKeyDown(e) {
+    e = e || window.event;
+    if (e.keyCode == '38') {
+        // up arrow
+	if (latch == false) {
+		TextVar = myform2.inputbox.value;
+		ArduinoVar = "http://" + TextVar + ":80";
+		$.get( ArduinoVar, { "mot": 40 })	;
+		{Connection: close};
+		latch = true;
+	}
+    }
+    else if (e.keyCode == '40') {
+        // down arrow
+	if (latch == false) {
+		TextVar = myform2.inputbox.value;
+		ArduinoVar = "http://" + TextVar + ":80";
+		$.get( ArduinoVar, { "mot": 10 })	;
+		{Connection: close};
+		latch = true;
+	}
+    }
+    else if (e.keyCode == '37') {
+	// left arrow
+	if (latch == false) {
+		TextVar = myform2.inputbox.value;
+		ArduinoVar = "http://" + TextVar + ":80";
+		$.get( ArduinoVar, { "mot": 20 })	;
+		{Connection: close};
+		latch = true;
+	}
+    }
+    else if (e.keyCode == '39') {
+        // right arrow
+	if (latch == false) {
+		TextVar = myform2.inputbox.value;
+		ArduinoVar = "http://" + TextVar + ":80";
+		$.get( ArduinoVar, { "mot": 30 })	;
+		{Connection: close};
+		latch = true;
+	}
+    }
+}
+
+document.onkeyup = checkKeyUp;
+function checkKeyUp(e) {
+    e = e || window.event;
+
+    if ((e.keyCode == '38')||(e.keyCode == '40')||(e.keyCode == '37')||(e.keyCode == '39')) {
+	setTimeout(doNothing, 200);
+    }
+}
+
+function doNothing(){
+	latch = false;
+}
+
     $( document ).ready(function() {
 	
 	
@@ -547,7 +606,6 @@ setInterval(soundCheck, 300);
 							{Connection: close};
 						}
 					});
-					
 					
 									
 									
