@@ -388,6 +388,28 @@ void loop()
       if(comando == "vel") {
         vel = valor;
       }
+
+
+      //**********************************
+      //movimentar os motores DC
+      //**********************************
+
+      if(comando == "mot") {
+        if(valor == 10) {
+          mot1(); //movimentar para a frente
+        }
+        if(valor == 20) {
+          mot2(); //movimentar para a direita
+        }
+        if(valor == 30) {
+          mot3(); //movimentar para a esquerda
+        }
+        if(valor == 40) {
+          mot4(); //movimentar para tras
+        }
+      }
+
+      
     }
   }
 }

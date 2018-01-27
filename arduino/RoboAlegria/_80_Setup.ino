@@ -33,6 +33,12 @@ void setup()
   pwm.setPWM(3, 0, map(pos4, 0, 180, SERVOMIN, SERVOMAX));
   pwm.setPWM(4, 0, map(pos5, 0, 180, SERVOMIN, SERVOMAX));
   pwm.setPWM(5, 0, map(pos6, 0, 180, SERVOMIN, SERVOMAX));
+
+  //pinos de saída para os motores
+  pinMode(motor1Pin1, OUTPUT);
+  pinMode(motor1Pin2, OUTPUT);
+  pinMode(motor2Pin1, OUTPUT);
+  pinMode(motor2Pin2, OUTPUT);
   
   //inicialização da comunicação serial
   Serial.begin(9600);
@@ -40,7 +46,7 @@ void setup()
 
   sendData("AT+RST\r\n", 2000, DEBUG); //resetar módulo
   sendData("AT+CWMODE=1\r\n", 1000, DEBUG); //setar modo station
-  sendData("AT+CWJAP=\"Connectify-me\",\"12345678\"\r\n", 2000, DEBUG);   //conectar com a rede wifi
+  sendData("AT+CWJAP=\"XXXXX\",\"YYYYY\"\r\n", 2000, DEBUG);   //conectar com a rede wifi
   while (!esp8266.find("OK")) { //aguardar estabelecer conexão
   }
   

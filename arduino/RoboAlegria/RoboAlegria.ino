@@ -23,6 +23,14 @@ Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver();
 LedControl lc = LedControl(9,10,11,4); //Pinos 9 (DIN), 10 (CLK), 11 (CS), 4 displays a serem controlados
 SoftwareSerial esp8266(5, 4); //RX pino 5, TX pino 4
 
+//definição dos pinos dos motores
+const int motor1Pin1 = 2;
+const int motor1Pin2 = 3;
+const int motor2Pin1 = 7;
+const int motor2Pin2 = 6;
+//definião da velocidade dos motores
+int motorSpeed = 255; //motor speed (PWM)
+
 //definição de variáveis 
 #define DEBUG true //exibir mensagens trocadas entre o ESP8266 e o arduino na porta Serial
 
